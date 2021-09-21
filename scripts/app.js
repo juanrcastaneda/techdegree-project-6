@@ -6,6 +6,7 @@ const startButton = document.getElementsByClassName('btn__reset')[0];
 const ul = document.getElementById("phrase").children[0];
 const triesContainer = document.getElementById("scoreboard").children[0];
 const keyrow1 = document.getElementById("qwerty").children[0].children[0];
+const button = overlay.children[1];
 
 //prases
 const phrases = [
@@ -76,12 +77,13 @@ function checkWin() {
         overlay.classList.add('win');
         overlay.children[0].textContent = "You Win";
         overlay.style.display = 'flex';
+        overlay.removeChild(button);
+
     } else if (missed > 4){
         overlay.classList.add('lose')
         overlay.children[0].textContent = "You Lose";
         overlay.style.display = 'flex';
-    } else {
-
+        overlay.removeChild(button);
     }
 }
 
